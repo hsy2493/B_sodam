@@ -1,0 +1,13 @@
+python 
+|
+---app
+    |
+    - database : mariadb 정의 및 연결
+    - key : 세션 미들웨어 관리
+    - model : db 테이블 정의
+    - router : controller (crud 처리)
+    - schema : basemodel 정의
+    - service : 비즈니스 로직 처리
+|
+|
+-----main : fastapi의 핵심 
