@@ -46,7 +46,17 @@ https://blog.naver.com/hsy24317/223857313806 <br>
 
 6. 작업 인원 : 5명
 
-7. 결과물  :
+7. 결과물  : <br>
+
+## <화면 구현> <br>
+(1) 로그인 <br>
+1-1.) 로그인 
+<img width="384" alt="image" src="https://github.com/user-attachments/assets/4e51c9c0-1f20-4e52-acd2-1b03d5c26625" /> <br> 
+<설명> <br>
+-아이디와 비밀번호 입력 후, <br>
+
+
+## <기능 구현> <br>
 
 <b>   
 8. 성과 : <br>
