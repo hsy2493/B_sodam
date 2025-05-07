@@ -1,7 +1,7 @@
 # `소담여행` - <국내여행지 추천 AI 사이트(최종 프로젝트)> 🚗 <br>
 1. 작업 기간 : 2025. 04. 02 ~2025. 05. 01
 2. 주제 : 국내여행지 추천 AI 사이트
-3. 목적 : 대한민국 국내 여행지를 계획하는 고객이 온라인에서 소담여행을 활용하여 키워드 선택 후 국내 여행지 추천, AI 채팅 등의 여러 기능을 이용함으로써 효율적인 여행 계획 세우는 것을 주목적으로 진행된 국내여행지 추천 AI 사이트 프로젝트 입니다.
+3. 목적 : 대한민국의 국내 여행지를 계획하는 고객이 온라인에서 소담여행 사이트를 활용하여 국내 여행지 추천, AI 채팅 등의 여러 기능을 이용함으로써 효율적인 국내 여행지 계획 세우는 것을 주목적으로 진행된 국내여행지 추천 AI 사이트 프로젝트 입니다.
 4. 주요 기능 : 로그인, 아이디 찾기/비밀번호 찾기 페이지, 관리자 페이지, 마이 페이지 
 
 - 역할/기능 분담 : <br>
@@ -53,7 +53,32 @@ https://blog.naver.com/hsy24317/223857313806 <br>
 1-1.) 로그인 
 <img width="384" alt="image" src="https://github.com/user-attachments/assets/4e51c9c0-1f20-4e52-acd2-1b03d5c26625" /> <br> 
 <설명> <br>
--아이디와 비밀번호 입력 후, <br>
+-아이디와 비밀번호 입력 후, 로그인 버튼 클릭 시, 로그인이 가능하다. <br>
+-kakao 로그인 버튼 클릭 시, 카톡통합로그인이 가능하다. <br>
+-비회원인 경우, 회원가입을 권장한다. <br>
+-아이디 또는 비밀번호 분실 시, 아이디 찾기/비밀번호 찾기를 권장한다. <br>
+- 로그인 - 화면구현 상세 코드 <br>
+https://github.com/hsy2493/F_sodam/blob/main/src/main/webapp/WEB-INF/jsp/login.jsp <br>
+
+(3) 아이디 찾기/비밀번호 찾기 <br>
+3-1.) 아이디 찾기 <br>
+<img width="358" alt="image" src="https://github.com/user-attachments/assets/b5755f45-d8c6-4dc3-a9ad-1a43fa755979" /> <br>
+<설명> <br>
+-이름과 전화번호 입력 후, 확인 버튼 클릭 시, 아이디 찾기가 가능하다.<br>
+- 아이디 찾기 - 화면구현 상세 코드 <br>
+https://github.com/hsy2493/F_sodam/blob/main/src/main/webapp/WEB-INF/jsp/find.jsp <br>
+
+3-2.) 비밀번호 찾기 <br>
+<img width="369" alt="image" src="https://github.com/user-attachments/assets/a08fd81f-cf5e-4695-9613-05edfa507939" /> <br>
+-아이디(이메일) 입력 후, 임시 비밀번호 버튼 클릭 시, 임시 비밀번호 전송으로 비밀번호 찾기가 가능하다.<br>
+- 비밀번호 찾기 - 화면구현 상세 코드 <br>
+https://github.com/hsy2493/F_sodam/blob/main/src/main/webapp/WEB-INF/jsp/find.jsp <br>
+
+(4) 관리자 페이지 <br>
+<img width="411" alt="image" src="https://github.com/user-attachments/assets/6ceeb546-e8ee-489c-ae80-fbabc2d79792" /> <br>
+-관리자 계정으로 로그인한 경우, 
+
+(5) 마이 페이지 <br>
 
 
 ## <기능 구현> <br>
