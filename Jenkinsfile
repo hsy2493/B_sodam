@@ -13,9 +13,9 @@ pipeline {
         }
         stage('Set up Python Environment') {
             steps {
-                sh 'python3 -m venv .venv'
-                sh '. .venv/bin/activate && pip install --upgrade pip'
-                sh '. .venv/bin/activate && pip install -r requirements.txt'
+                sh 'python3 -m venv venv'
+                sh '. venv/bin/activate && pip install --upgrade pip'
+                sh '. venv/bin/activate && pip install -r requirements.txt'
             }
         }
         stage('Build Docker Image') {
