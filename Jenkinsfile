@@ -8,27 +8,20 @@ pipeline {
         }
         stage('Set up Python Environment') {
             steps {
-                sh 'python -m venv venv'
+                sh 'python3 -m venv venv'
                 sh '. venv/bin/activate && pip install --upgrade pip'
                 sh '. venv/bin/activate && pip install -r requirements.txt'
             }
         }
         stage('Build Docker Image') {
             steps {
-                script {
-                    docker.image('python:3.10-slim-buster').withRun('-v /var/run/docker.sock:/var/run/docker.sock') { c ->
-                        sh "docker build -t fastapi-app ."
-                    }
-                }
+                sh 'docker build -t fastapi-app .'
             }
         }
+        // Optional: Docker 실행 단계 (활성화 시 주의)
         // stage('Run Docker Container') {
         //     steps {
-        //         script {
-        //             docker.image('fastapi-app').withRun('-d -p 8000:8000') { c ->
-        //                 sh "docker logs -f ${c.id}"
-        //             }
-        //         }
+        //         sh 'docker run -d -p 8000:8000 --name fastapi-container fastapi-app'
         //     }
         // }
     }
