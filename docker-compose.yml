@@ -1,0 +1,22 @@
+services:
+  db:
+    image: mariadb:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: sodam
+      MYSQL_USER: sodam
+      MYSQL_PASSWORD: 4444
+    ports:
+      - "3305:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+  fastapi:
+    build: .  
+    ports:
+      - "8001:8000"
+    depends_on:
+      - db
+    restart: always
+volumes:
+  db_data:
