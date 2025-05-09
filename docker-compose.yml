@@ -21,12 +21,13 @@ services:
     restart: always
   jenkins:
     image: jenkins/jenkins:lts
-    container_name: jenkins # 젠킨스 컨테이너명 
+    container_name: jenkins # 젠킨스 컨테이너명
     ports:
-      - "8081:8080" # localhost:8081 
+      - "8081:8080" # localhost:8081
       - "50000:50000"
     volumes:
       - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock # 호스트 Docker 소켓 마운트
     user: jenkins
     restart: always
 volumes:
