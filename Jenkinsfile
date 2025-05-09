@@ -8,23 +8,20 @@ pipeline {
         }
         stage('Set up Python Environment') {
             steps {
-                script {
-                    docker.image('python:3.10-slim-buster').inside {
-                        sh 'python -m venv venv'
-                        sh '. venv/bin/activate && pip install --upgrade pip'
-                        sh '. venv/bin/activate && pip install -r requirements.txt'
-                    }
-                }
+                sh 'python -m venv venv'
+                sh '. venv/bin/activate && pip install --upgrade pip'
+                sh '. venv/bin/activate && pip install -r requirements.txt'
             }
         }
         stage('Build Docker Image') {
             steps {
-                script {
-                    docker.image('docker:latest').inside {
-                        sh 'docker build -t fastapi-app .'
-                    }
-                }
+                sh 'docker build -t fastapi-app .'
             }
         }
+        // stage('Run Docker Container') {
+        //     steps {
+        //         sh 'docker run -d --name fastapi-container -p 8000:8000 fastapi-app'
+        //     }
+        // }
     }
 }
