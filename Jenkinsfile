@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'python:3.10'
+            image 'python:3.10-slim-buster'
             args '-v /var/run/docker.sock:/var/run/docker.sock'
         }
     }
@@ -23,10 +23,10 @@ pipeline {
                 sh 'docker build -t fastapi-app .'
             }
         }
-        stage('Run Docker Container') {
-            steps {
-                sh 'docker run -d --name fastapi-container -p 8000:8000 fastapi-app'
-            }
-        }
+        // stage('Run Docker Container') {
+        //     steps {
+        //         sh 'docker run -d --name fastapi-container -p 8000:8000 fastapi-app'
+        //     }
+        // }
     }
 }

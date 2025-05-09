@@ -1,3 +1,4 @@
+version: '3.8'
 services:
   db:
     image: mariadb:latest
@@ -14,14 +15,15 @@ services:
   fastapi:
     build: .
     ports:
-      - "8001:8000"
+      - "8001:8000" # localhost:8081/docs
     depends_on:
       - db
     restart: always
   jenkins:
     image: jenkins/jenkins:lts
+    container_name: jenkins # 젠킨스 컨테이너명 
     ports:
-      - "8080:8080"  
+      - "8081:8080" # localhost:8081 
       - "50000:50000"
     volumes:
       - jenkins_home:/var/jenkins_home
