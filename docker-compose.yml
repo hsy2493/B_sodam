@@ -1,3 +1,4 @@
+version: '3.8'
 services:
   db:
     image: mariadb:latest
@@ -12,11 +13,22 @@ services:
       - db_data:/var/lib/mysql
     restart: always
   fastapi:
-    build: .  
+    build: .
     ports:
       - "8001:8000"
     depends_on:
       - db
     restart: always
+  jenkins:
+    image: jenkins/jenkins:lts
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    user: jenkins
+    restart: always
 volumes:
   db_data:
+  jenkins_home:
