@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'python:3.10-slim-buster'
-            args '-v /var/run/docker.sock:/var/run/docker.sock'
+            args '-v /var/run/docker.sock:/var/run/docker.sock -e PATH="${PATH}:/usr/local/bin:/usr/bin:/bin"'
         }
     }
     stages {
