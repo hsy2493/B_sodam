@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'python:3.10' // Python 3.10 환경 사용
+            image 'python:3.10.6' // Python 3.10 환경 사용
         }
     }
     stages {
@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Set up Python Environment') { 
             steps {
-                sh 'python3 -m venv .venv'
+                sh 'python -m venv .venv'
                 sh '. .venv/bin/activate && pip install --upgrade pip'
                 sh '. .venv/bin/activate && pip install -r requirements.txt'
             }
