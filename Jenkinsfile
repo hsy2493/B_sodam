@@ -1,10 +1,5 @@
 pipeline {
-    agent {
-        docker {
-            image 'python:3.10-slim-buster'
-            args '-v /var/run/docker.sock:/var/run/docker.sock'
-        }
-    }
+    agent any
     stages {
         stage('Checkout') {
             steps {
@@ -13,19 +8,27 @@ pipeline {
         }
         stage('Set up Python Environment') {
             steps {
-                sh 'python3 -m venv venv'
+                sh 'python -m venv venv'
                 sh '. venv/bin/activate && pip install --upgrade pip'
                 sh '. venv/bin/activate && pip install -r requirements.txt'
             }
         }
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t fastapi-app .'
+                script {
+                    docker.image('python:3.10-slim-buster').withRun('-v /var/run/docker.sock:/var/run/docker.sock') { c ->
+                        sh "docker build -t fastapi-app ."
+                    }
+                }
             }
         }
         // stage('Run Docker Container') {
         //     steps {
-        //         sh 'docker run -d --name fastapi-container -p 8000:8000 fastapi-app'
+        //         script {
+        //             docker.image('fastapi-app').withRun('-d -p 8000:8000') { c ->
+        //                 sh "docker logs -f ${c.id}"
+        //             }
+        //         }
         //     }
         // }
     }
