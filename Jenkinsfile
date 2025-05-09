@@ -20,8 +20,7 @@ pipeline {
         }
         stage('Run Docker Container') {
             steps {
-                sh 'docker-compose down || true'
-                sh 'docker-compose up -d'
+                sh 'docker run -d --name fastapi-container -p 8000:8000 fastapi-app'
             }
         }
     }
