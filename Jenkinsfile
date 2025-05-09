@@ -6,7 +6,7 @@ pipeline {
                 git credentialsId: 'github-signin', url: 'https://github.com/hsy2493/B_sodam.git'
             }
         }
-        stage('Set up Python Environment') {
+        stage('Set up Python Environment') { //
             steps {
                 sh 'python -m venv .venv'
                 sh 'source .venv/bin/activate'
