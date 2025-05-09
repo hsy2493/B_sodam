@@ -1,6 +1,10 @@
 pipeline {
     agent {
-        docker { image 'python:3.10' }
+        docker { 
+            image 'python:3.10' 
+            dockerHost 'unix:///Users/hwangseoyeong/Library/Containers/com.docker.docker/socket'
+            
+            }
     }
     stages {
         stage('Checkout') {
