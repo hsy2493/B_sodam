@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git credentialsId: 'github-token', url: 'https://github.com/hsy2493/B_sodam.git'
+                git credentialsId: 'github-signin', url: 'https://github.com/hsy2493/B_sodam.git'
             }
         }
         stage('Set up Python Environment') {
