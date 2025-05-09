@@ -6,20 +6,6 @@ pipeline {
                 git credentialsId: 'github-signin', branch: 'main', url: 'https://github.com/hsy2493/B_sodam.git'
             }
         }
-        stage('Set up Python Environment') {
-            steps {
-                script {
-                    docker.withClient() {
-                        sh 'whoami'
-                        sh 'ls -l /var/run/docker.sock'
-                        docker.image('python:3.10-slim-buster').inside {
-                            sh 'python -m venv venv'
-                            sh '. venv/bin/activate && pip install -r requirements.txt'
-                        }
-                    }
-                }
-            }
-        }
         stage('Build Docker Image') {
             steps {
                 script {
