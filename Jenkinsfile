@@ -18,9 +18,9 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                script {
-                    docker.build("fastapi-app", ".")
-                }
+                sh 'whoami'
+                sh 'ls -l /var/run/docker.sock'
+                sh 'docker build -t fastapi-app .'
             }
         }
     }
