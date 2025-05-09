@@ -8,7 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware # CORS 미들웨어 import
 
 app = FastAPI()
 
-origins = [
+origins = [  
     "http://localhost:8080",  # 클라이언트 Origin (현재 HTML 파일을 여는 주소)
     "http://localhost:8000",  # FastAPI 서버 Origin
     "http://127.0.0.1:8080",
