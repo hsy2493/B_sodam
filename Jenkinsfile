@@ -11,7 +11,6 @@ pipeline {
                 script {
                     docker.image('python:3.10-slim-buster').inside {
                         sh 'python -m venv venv'
-                        sh '. venv/bin/activate && pip install --upgrade pip'
                         sh '. venv/bin/activate && pip install -r requirements.txt'
                     }
                 }
@@ -24,14 +23,5 @@ pipeline {
                 }
             }
         }
-        // stage('Run Docker Container') {
-        //     steps {
-        //         script {
-        //             docker.image('fastapi-app').withRun('-d -p 8000:8000') { c ->
-        //                 sh "docker logs -f ${c.id}"
-        //             }
-        //         }
-        //     }
-        // }
     }
 }
