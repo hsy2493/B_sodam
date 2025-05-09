@@ -1,8 +1,6 @@
 pipeline {
     agent {
-        docker {
-            image 'python:3.10.6' // Python 3.10 환경 사용
-        }
+        docker { image 'python:3.10.6' }
     }
     stages {
         stage('Checkout') {
@@ -10,9 +8,9 @@ pipeline {
                 git credentialsId: 'github-signin', branch: 'main', url: 'https://github.com/hsy2493/B_sodam.git'
             }
         }
-        stage('Set up Python Environment') { 
+        stage('Set up Python Environment') {
             steps {
-                sh 'python -m venv .venv'
+                sh 'python3 -m venv .venv'
                 sh '. .venv/bin/activate && pip install --upgrade pip'
                 sh '. .venv/bin/activate && pip install -r requirements.txt'
             }
