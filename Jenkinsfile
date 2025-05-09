@@ -8,9 +8,9 @@ pipeline {
         }
         stage('Set up Python Environment') {
             steps {
-                sh '/usr/local/bin/python3 -m venv venv'
-                sh '. venv/bin/activate && /usr/local/bin/pip3 install --upgrade pip'
-                sh '. venv/bin/activate && /usr/local/bin/pip3 install -r requirements.txt'
+                sh '/usr/local/opt/python@3.13/bin/python3 -m venv venv'
+                sh '. venv/bin/activate && /usr/local/opt/python@3.13/bin/pip3 install --upgrade pip'
+                sh '. venv/bin/activate && /usr/local/opt/python@3.13/bin/pip3 install -r requirements.txt'
             }
         }
         stage('Build Docker Image') {
