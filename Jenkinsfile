@@ -3,12 +3,12 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git credentialsId: 'github-signin', branch: 'main', url: 'https://github.com/hsy2493/B_sodam.git'
+                git credentialsId: 'github-signin', branch: 'main',url: 'https://github.com/hsy2493/B_sodam.git'
             }
         }
         stage('Set up Python Environment') { 
             steps {
-                sh 'python -m venv .venv'
+                sh 'python3 -m venv .venv'
                 sh 'source .venv/bin/activate'
                 sh 'pip install -r requirements.txt'
             }
